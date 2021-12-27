@@ -10,7 +10,7 @@ Explore US Bikeshare data
 The bikeshare.py-file gives the opportunity to explore US bikeshare data from several US cities
 
 ### Files used
-Include the files used
+.gitignore, bikesahre.py, chicago.csv, new_york_city.csv, washington.csv
 
 ### Credits
 It's important to give proper credit. Add links to any repo that inspired you or blogposts you consulted.
