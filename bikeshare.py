@@ -22,7 +22,7 @@ def get_filters():
     while city not in CITY_DATA:
         city = str(input('Enter name of the city to filter by: ')).lower()
         if city not in CITY_DATA:
-            print('Sorry, but it seems like the given city is not in the list or there was a spelling error.')
+            print('Sorry, but it seems like the given city is not in the list or there might has been a spelling error.')
 
     # TO DO: get user input for month (all, january, february, ... , june)
     month = 'month'
@@ -30,7 +30,7 @@ def get_filters():
     while month not in months:
         month = str(input('Enter name of the month to filter by, or "all" to apply no month filter: ')).lower()
         if month not in months:
-            print('Sorry, but it seems like the given month is not in the list or there was a spelling error.')
+            print('Sorry, but it seems like the given month is not in the list or there might has been a spelling error.')
 
     # TO DO: get user input for day of week (all, monday, tuesday, ... sunday)
     day = 'day'
@@ -38,8 +38,8 @@ def get_filters():
     while day not in days:
         day = str(input('Enter name of the weekday to filter by, or "all" to apply no weekday filter: ')).lower()
         if day not in days:
-            print('Sorry, but it seems like the given month is not in the list or there was a spelling error.')
-            
+            print('Sorry, but it seems like the given month is not in the list or there might has been a spelling error.')
+
     print('-'*40)
     return city, month, day
 
@@ -53,20 +53,20 @@ def load_data(city, month, day):
         (str) day - name of the day of week to filter by, or "all" to apply no day filter
     Returns:
         df - Pandas DataFrame containing city data filtered by month and day
-    
+
     """
-    
+
     # load data file into a dataframe
     df = pd.read_csv(CITY_DATA[city])
-    
+
     # convert the Start Time column to datetime
     df['Start Time'] = pd.to_datetime(df['Start Time'])
-    
+
     # extract month and day of week from Start Time to create new columns
     df['month'] = df['Start Time'].dt.month
     df['day_of_week'] = df['Start Time'].dt.weekday_name
-    
-    
+
+
     # filter by month if applicable
     if month != 'all':
         # use the index of the months list to get the corresponding int
@@ -80,25 +80,25 @@ def load_data(city, month, day):
     if day != 'all':
         # filter by day of week to create the new dataframe
         df = df[df['day_of_week'] == day.title()]
-        
+
     return df
 
 
 def time_stats(df):
     """Displays statistics on the most frequent times of travel."""
-    
+
     print('\nCalculating The Most Frequent Times of Travel...\n')
     start_time = time.time()
 
     # TO DO: display the most common month
     months = ['January', 'February', 'March', 'April', 'May', 'June']
-    most_common_month = months[df['month'].mode()[0]-1]          
+    most_common_month = months[df['month'].mode()[0]-1]
     print('{} is the most common month.'.format(most_common_month))
 
     # TO DO: display the most common day of week
     most_common_day = df['day_of_week'].value_counts().idxmax()
     print('{} is the most common day of week.'.format(most_common_day))
-    
+
     # TO DO: display the most common start hour
     df['start_hour'] = df['Start Time'].dt.hour
     most_common_start_hour = df['start_hour'].value_counts().idxmax()
@@ -140,7 +140,7 @@ def trip_duration_stats(df):
     # TO DO: display total travel time
     total_travel_time = int(df['Trip Duration'].sum())
     print('The total travel time is {} seconds.'.format(total_travel_time))
-    
+
     # TO DO: display mean travel time
     mean_travel_time = int(df['Trip Duration'].mean())
     print('The mean travel time is {} seconds.'.format(mean_travel_time))
@@ -188,7 +188,7 @@ def main():
         station_stats(df)
         trip_duration_stats(df)
         user_stats(df)
-        
+
         row = 0
         while True:
             viewData = input('\nWould you like to see the raw data? Enter yes or no.\n').lower()
