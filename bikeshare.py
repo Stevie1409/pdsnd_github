@@ -1,4 +1,5 @@
-# Explore US bikeshare data 
+# Explore US bikeshare data
+# The bikeshare.py-file gives the opportunity to explore US bikeshare data from several US cities
 
 import time
 import pandas as pd
