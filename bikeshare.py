@@ -25,7 +25,7 @@ def get_filters():
     while city not in CITY_DATA:
         city = str(input('Enter name of the city to filter by: ')).lower()
         if city not in CITY_DATA:
-            print('Sorry, but it seems like the given city is not in the list or there was a spelling error.')
+            print('Sorry, but it seems like the given city is not in the list or there might has been a spelling error.')
 
     # TO DO: get user input for month (all, january, february, ... , june)
     month = 'month'
@@ -33,7 +33,7 @@ def get_filters():
     while month not in months:
         month = str(input('Enter name of the month to filter by, or "all" to apply no month filter: ')).lower()
         if month not in months:
-            print('Sorry, but it seems like the given month is not in the list or there was a spelling error.')
+            print('Sorry, but it seems like the given month is not in the list or there might has been a spelling error.')
 
     # TO DO: get user input for day of week (all, monday, tuesday, ... sunday)
     day = 'day'
@@ -194,8 +194,8 @@ def main():
 
         row = 0
         while True:
-            viewData = input('\nWould you like to see the raw data? Enter yes or no.\n').lower()
-            if viewData == 'yes':
+            viewData = input('\nWould you like to see the raw data? Enter y for yes or n for no.\n').lower()
+            if viewData == 'y':
                 print(df.iloc[row:row+5,:])
                 row += 5
             else:
