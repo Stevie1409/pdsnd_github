@@ -191,8 +191,8 @@ def main():
 
         row = 0
         while True:
-            viewData = input('\nWould you like to see the raw data? Enter yes or no.\n').lower()
-            if viewData == 'yes':
+            viewData = input('\nWould you like to see the raw data? Enter y for yes or n for no.\n').lower()
+            if viewData == 'y':
                 print(df.iloc[row:row+5,:])
                 row += 5
             else:
