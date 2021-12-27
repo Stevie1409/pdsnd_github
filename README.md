@@ -4,10 +4,10 @@
 27 Dec 2021
 
 ### Project Title
-Post bikeshare.py on Github
+Explore US Bikeshare data
 
 ### Description
-Describe what your project is about and what it does
+The bikeshare.py-file gives the opportunity to explore US bikeshare data from several US cities
 
 ### Files used
 Include the files used
